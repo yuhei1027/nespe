@@ -30,12 +30,12 @@ def main():
 
       with col1:
         if st.button('次の問題',key=1) :
-          st.session_state['index']=random.randint(0,len(df))
+          st.session_state['index']=random.randint(0,10)
 
 
       with col2:
         if st.button('解答を表示',key=0):
-          st.session_state['index']=random.randint(0,len(df))
+          st.session_state['index']=random.randint(0,10)
 
 
       st.write('問題：',st.session_state['question'])
