@@ -24,6 +24,8 @@ def main():
     if 'state' not in st.session_state:
       st.session_state["state"] = 0
 
+    if 'category' not in st.session_state:
+      st.session_state["category"] = ''
 
     if 'question' not in st.session_state:
       st.session_state["question"] = ''
@@ -40,6 +42,7 @@ def main():
     with col1:
       if st.button('次の問題',key=1) and st.session_state['state']==0:
         st.session_state['index']=random.randint(0,10)
+        st.session_state['category']=df['category'].iloc[st.session_state['index']]
         st.session_state['question']=df['question'].iloc[st.session_state['index']]
         st.session_state['answer']=''
         st.session_state['state']=1
@@ -47,6 +50,7 @@ def main():
 
     with col2:
       if st.button('解答を表示',key=0)  and st.session_state['state']==1:
+        st.session_state['category']=df['category'].iloc[st.session_state['index']]
         st.session_state['question']=df['question'].iloc[st.session_state['index']]
         st.session_state['answer']=df['answer'].iloc[st.session_state['index']]
         st.session_state['state']=0
