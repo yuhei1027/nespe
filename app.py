@@ -56,6 +56,7 @@ def main():
         st.session_state['state']=0
 
 
+    st.write('カテゴリ：',st.session_state['category'])
     st.write('問題：',st.session_state['question'])
     st.write('答え：',st.session_state['answer'])
 
