@@ -17,9 +17,9 @@ def main():
     a=st.checkbox('すべて選択')
     if a:
       category_flag=category_list.copy()
-    st.write("_".join(category_flag))
+
     df=df[df['category'].isin(category_flag)].reset_index(drop=True)
-    st.write(len(df))
+
 
     if 'state' not in st.session_state:
       st.session_state["state"] = 0
